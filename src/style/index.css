@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply font-poppins;
+}
+
+body {
+    @apply bg-primary;
+}
+
+@layer {
+    .layout {
+        @apply container mx-auto px-4 xl:px-64 md:px-48 w-full relative
+    }
+
+    [contenteditable][placeholder]:empty:before {
+        content: attr(placeholder);
+        @apply absolute text-slate-400 bg-transparent
+    }
+
+    .max-1-line {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+                line-clamp: 1; 
+        -webkit-box-orient: vertical;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(236, 93, 93);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
