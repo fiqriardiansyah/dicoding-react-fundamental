@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import CloseImg from "../../assets/svgs/close.svg";
 
-function Modal({ children, component, title = "" }) {
+function Modal({ children, component, title = "", loading = false }) {
     const [show, setShow] = useState(false);
     const [data, setData] = useState(null);
 
@@ -26,6 +26,7 @@ function Modal({ children, component, title = "" }) {
         openModalHandler,
         openModalHandlerWithData,
         closeModalHandler,
+        loading,
     };
 
     if (!show) return component(childData);
@@ -53,6 +54,7 @@ Modal.propTypes = {
     children: PropTypes.func.isRequired,
     component: PropTypes.func.isRequired,
     title: PropTypes.string,
+    loading: PropTypes.bool,
 };
 
 export default Modal;

@@ -1,11 +1,17 @@
-const showFormattedDate = (date) => {
+import { ACCESS_TOKEN, LANG_EN, LANG_ID } from "./const";
+
+// locale
+import idLocale from "../data/locale/id.json";
+import enLocale from "../data/locale/en.json";
+
+const showFormattedDate = ({ date, locale }) => {
     const options = {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
     };
-    return new Date(date).toLocaleDateString("id-ID", options);
+    return new Date(date).toLocaleDateString(locale, options);
 };
 
 const filterNotes = ({ query, notes }) => {
@@ -17,6 +23,7 @@ const filterNotes = ({ query, notes }) => {
     );
 };
 
+// eslint-disable-next-line no-shadow
 function highlight({ text, sentence }) {
     if (!text) return sentence;
     return sentence
@@ -81,6 +88,31 @@ function moveNote({ id, notes }) {
     });
 }
 
+function signout() {
+    localStorage.removeItem(ACCESS_TOKEN);
+    window.location.href = "/";
+}
+
+function localeText({ lang, word }) {
+    const locales = [
+        {
+            key: LANG_ID,
+            locales: idLocale,
+        },
+        {
+            key: LANG_EN,
+            locales: enLocale,
+        },
+    ];
+
+    const locale = locales.find((lc) => lc.key === lang);
+    return Object.keys(locale.locales)
+        .map((k) => ({
+            [k]: locale.locales[k],
+        }))
+        .find((lc) => lc[word])[word];
+}
+
 export default {
     showFormattedDate,
     filterNotes,
@@ -92,4 +124,6 @@ export default {
     moveNote,
     removeNote,
     editNote,
+    signout,
+    localeText,
 };
