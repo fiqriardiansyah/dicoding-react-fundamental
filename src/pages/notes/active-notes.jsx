@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
 
 import Modal from "../../components/modals";
 import ConfirmDeleteNote from "../../components/confirm-delete-note";
@@ -7,13 +6,7 @@ import Empty from "../../components/empty";
 import Layout from "../../components/layout";
 import Notes from "../../components/notes";
 import utils from "../../utils";
-import {
-    ACTION_MOVE,
-    ACTION_REMOVE,
-    DANGER,
-    DEFAULT_ERROR_MESSAGE,
-    INFO,
-} from "../../utils/const";
+import { ACTION_MOVE, ACTION_REMOVE, DANGER, INFO } from "../../utils/const";
 import Apis from "../../service/apis";
 import useFetchState from "../../hooks/useFetchState";
 import LoadingSpinner from "../../components/loading-spinner";

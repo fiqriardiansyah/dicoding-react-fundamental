@@ -138,7 +138,7 @@ function NotePage() {
                 )}
                 {!getNote.loading && getNote.data && (
                     <div className="w-full flex flex-col">
-                        <h1 className="text-white text-3xl capitalize">
+                        <h1 className="text-text-primary dark:text-text-primary-dark text-3xl capitalize">
                             {getNote.data?.title}
                         </h1>
                         <p className="text-slate-400">
@@ -167,7 +167,7 @@ function NotePage() {
                     <button
                         onClick={toggleArchiveNoteFetcher}
                         type="button"
-                        className="ml-3 w-10 h-10 z-20 flex items-center justify-center p-2 bg-tertiary hover:bg-white rounded-full text-2xl font-semibold"
+                        className="ml-3 w-10 h-10 z-20 flex items-center justify-center p-2 bg-tertiary dark:bg-tertiary-dark hover:bg-white rounded-full text-2xl font-semibold"
                     >
                         {getNote.data?.archived ? (
                             <BiArchiveOut />
@@ -181,7 +181,7 @@ function NotePage() {
                             <button
                                 onClick={data.openModalHandler}
                                 type="button"
-                                className="ml-3 w-10 h-10 z-20 flex items-center justify-center p-3 bg-tertiary hover:bg-white rounded-full text-2xl font-semibold"
+                                className="ml-3 w-10 h-10 z-20 flex items-center justify-center p-3 bg-tertiary dark:bg-tertiary-dark hover:bg-white rounded-full text-2xl font-semibold"
                             >
                                 <img src={DeleteImg} alt="delete" />
                             </button>

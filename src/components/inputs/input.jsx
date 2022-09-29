@@ -24,7 +24,7 @@ function Input({
         <>
             {limit && (
                 <div className="flex items-center justify-end w-full mb-1">
-                    <p className="capitalize text-white text-sm">{`${localeText(
+                    <p className="capitalize text-text-primary dark:text-text-primary-dark text-sm">{`${localeText(
                         "remaining_characters",
                     )}: ${maxChar - value.length}`}</p>
                 </div>
@@ -37,7 +37,7 @@ function Input({
                 placeholder={placeholder}
                 name={name}
                 id={id}
-                className="w-full h-12 rounded-lg px-3 text-white bg-secondary border-none focus:outline-primary"
+                className="w-full h-12 rounded-lg px-3 text-text-primary dark:text-text-primary-dark bg-secondary dark:bg-secondary-dark  border-none focus:outline-primary"
             />
         </>
     );

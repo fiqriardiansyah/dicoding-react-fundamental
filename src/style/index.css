@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    @apply bg-primary;
+    @apply bg-primary dark:bg-primary-dark transition duration-200;
 }
 
 *:disabled {

@@ -18,9 +18,9 @@ function Note({ data: { id, title, body, createdAt, archived }, onClick }) {
     };
 
     return (
-        <div className="w-full flex flex-col rounded-xl bg-base p-3 relative">
+        <div className="w-full flex flex-col rounded-xl bg-base dark:bg-base-dark p-3 relative">
             <Link to={`/note/${id}`} className="focus:underline">
-                <div className="text-white text-lg font-medium capitalize hover:underline">
+                <div className="text-text-primary dark:text-text-primary-dark text-lg font-medium capitalize hover:underline">
                     {parser(
                         utils.highlight({
                             text: searchParams.get(QUERY),

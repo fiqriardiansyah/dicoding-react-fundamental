@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { FiSearch } from "react-icons/fi";
 
-import SearchImg from "../../assets/svgs/search.svg";
 import useLocale from "../../hooks/useLocale";
 
 function SearchInput({ onSearchChange, defaultValue }) {
@@ -21,10 +21,10 @@ function SearchInput({ onSearchChange, defaultValue }) {
                 onChange={onChange}
                 type="text"
                 placeholder={localeText("search_notes")}
-                className="w-full h-12 rounded-full px-8 text-white bg-secondary border-none focus:bg-slate-50 focus:text-primary"
+                className="w-full h-12 rounded-full px-8 text-text-primary dark:text-text-primary-dark bg-secondary dark:bg-secondary-dark  border-none focus:bg-slate-50 focus:text-text-primary focus:dark:text-text-primary-dark"
             />
-            <div className="w-10 h-10 p-2 border-none bg-primary  rounded-full absolute top-1/2 right-2 transform -translate-y-1/2">
-                <img src={SearchImg} alt="search" />
+            <div className="text-text-primary dark:text-text-primary-dark w-10 h-10 p-1 border-none bg-primary dark:bg-primary-dark flex items-center justify-center rounded-full absolute top-1/2 right-2 transform -translate-y-1/2">
+                <FiSearch />
             </div>
         </div>
     );

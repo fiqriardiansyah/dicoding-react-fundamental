@@ -16,7 +16,7 @@ function NoteTextarea({ id = "", placeholder = "", defaultValue = "" }) {
             id={id}
             contentEditable
             placeholder={placeholder}
-            className="w-full rounded-lg p-3 min-h-[200px] text-white bg-secondary border-none focus:outline-primary"
+            className="w-full rounded-lg p-3 min-h-[200px] text-text-primary dark:text-text-primary-dark bg-secondary dark:bg-secondary-dark  border-none focus:outline-primary"
         />
     );
 }

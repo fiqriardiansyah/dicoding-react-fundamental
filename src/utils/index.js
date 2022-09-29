@@ -30,7 +30,7 @@ function highlight({ text, sentence }) {
         .toLowerCase()
         .replace(
             text?.toLowerCase(),
-            `<span class='bg-yellow-300 text-white m-0 p-0'>${text?.toLowerCase()}</span>`,
+            `<span class='bg-yellow-300 text-text-primary m-0 p-0'>${text?.toLowerCase()}</span>`,
         );
 }
 

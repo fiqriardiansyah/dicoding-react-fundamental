@@ -43,7 +43,7 @@ function Layout({ children, notes }) {
             <Link to="/new">
                 <button
                     type="button"
-                    className="right-4 md:right-72 w-10 h-10 z-20 bg-tertiary hover:bg-white rounded-full fixed bottom-6 text-2xl font-semibold"
+                    className="text-text-primary dark:text-text-primary-dark right-4 md:right-72 w-10 h-10 z-20 bg-tertiary dark:bg-tertiary-dark hover:bg-secondary hover:dark:bg-secondary-dark  rounded-full fixed bottom-6 text-2xl font-semibold"
                 >
                     +
                 </button>

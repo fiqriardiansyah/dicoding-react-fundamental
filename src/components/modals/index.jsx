@@ -39,7 +39,7 @@ function Modal({ children, component, title = "", loading = false }) {
                     <button
                         type="button"
                         onClick={closeModalHandler}
-                        className="w-8 h-8 rounded-full p-2 hover:bg-tertiary"
+                        className="w-8 h-8 rounded-full p-2 hover:bg-tertiary dark:bg-tertiary-dark"
                     >
                         <img src={CloseImg} alt="close" />
                     </button>

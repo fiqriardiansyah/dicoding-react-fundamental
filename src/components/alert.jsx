@@ -6,12 +6,12 @@ import { DANGER, INFO, STATUS, SUCCESS, WARNING } from "../utils/const";
 
 function Alert({ text = "", type = SUCCESS, children }) {
     const classname = classNames(
-        "text-white px-5 capitalize text-lg py-2 text-center flex items-cente justify-center rounded mt-2",
+        "text-text-primary dark:text-text-primary-dark px-5 capitalize text-lg py-2 text-center flex items-cente justify-center rounded mt-2",
         {
             "bg-green-400": type === SUCCESS,
             "bg-red-400": type === DANGER,
             "bg-orange-300": type === WARNING,
-            "bg-tertiary": type === STATUS,
+            "bg-tertiary dark:bg-tertiary-dark": type === STATUS,
             "bg-transparent": type === INFO,
         },
     );

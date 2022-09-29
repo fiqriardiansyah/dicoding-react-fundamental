@@ -37,7 +37,7 @@ function FormNote({
             <button
                 disabled={loading}
                 type="submit"
-                className="mt-5 outline-1 outline text-white outline-primary px-5 py-2 rounded-md bg-secondary hover:bg-tertiary hover:text-white focus:bg-tertiary capitalize"
+                className="mt-5 outline-1 outline text-text-primary dark:text-text-primary-dark outline-primary px-5 py-2 rounded-md bg-secondary dark:bg-secondary-dark  hover:bg-tertiary dark:bg-tertiary-dark hover:text-text-primary hover:dark:text-text-primary-dark focus:bg-tertiary dark:bg-tertiary-dark capitalize"
             >
                 {loading ? <LoadingSpinner /> : localeText("save")}
             </button>

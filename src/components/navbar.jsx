@@ -10,12 +10,12 @@ function Navbar({ href, title }) {
             <Link to={href}>
                 <div
                     type="button"
-                    className="w-10 h-10 bg-tertiary hover:bg-white rounded-full flex items-center justify-center p-3"
+                    className="w-10 h-10 bg-tertiary dark:bg-tertiary-dark hover:bg-white rounded-full flex items-center justify-center p-3"
                 >
                     <img src={BackImg} className="" alt="back" />
                 </div>
             </Link>
-            <h1 className="text-white font-semibold text-2xl xl:text-4xl capitalize ml-5 max-1-line">
+            <h1 className="text-text-primary dark:text-text-primary-dark font-semibold text-2xl xl:text-4xl capitalize ml-5 max-1-line">
                 {title}
             </h1>
         </div>

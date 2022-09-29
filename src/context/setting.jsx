@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from "react";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import {
     DARK_MODE,
@@ -16,6 +16,21 @@ function SettingProvider({ children }) {
         theme: localStorage.getItem(THEME_MODE) || DARK_MODE,
         lang: localStorage.getItem(LANG) || LANG_ID,
     });
+
+    const setTheme = (theme) => {
+        if (
+            theme === DARK_MODE ||
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            document.documentElement.classList.add(DARK_MODE);
+        } else {
+            document.documentElement.classList.remove(DARK_MODE);
+        }
+    };
+
+    useEffect(() => {
+        setTheme(setting.theme);
+    }, [setting.theme]);
 
     const toggleTheme = () => {
         setSetting((prev) => {

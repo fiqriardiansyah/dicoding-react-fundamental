@@ -53,7 +53,7 @@ function SignIn() {
     return (
         <div className="layout">
             <Header />
-            <h2 className="text-white text-2xl capitalize">
+            <h2 className="text-text-primary dark:text-text-primary-dark text-2xl capitalize">
                 {localeText("welcome_back")}
             </h2>
             <p className="text-slate-400 capitalize">{localeText("sign_in")}</p>
@@ -77,7 +77,7 @@ function SignIn() {
                 <button
                     disabled={signIn.loading}
                     type="submit"
-                    className="mt-5 outline-1 outline text-white outline-primary px-5 py-2 rounded-md bg-secondary hover:bg-tertiary hover:text-white focus:bg-tertiary capitalize"
+                    className="mt-5 outline-1 outline text-text-primary dark:text-text-primary-dark outline-primary px-5 py-2 rounded-md bg-secondary dark:bg-secondary-dark  hover:bg-tertiary hover:dark:bg-tertiary-dark hover:text-text-primary hover:dark:text-text-primary-dark focus:bg-tertiary focus:dark:bg-tertiary-dark capitalize"
                 >
                     {signIn.loading ? (
                         <LoadingSpinner />

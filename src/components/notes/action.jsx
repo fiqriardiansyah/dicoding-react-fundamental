@@ -19,7 +19,7 @@ function Action({ openMenuHandler, showMenu, setShowMenu, onClick, note }) {
             <button
                 onClick={openMenuHandler}
                 type="button"
-                className="w-8 h-8 flex items-center justify-center bg-secondary hover:bg-tertiary rounded-full absolute bottom-4 right-4"
+                className="w-8 h-8 flex items-center justify-center bg-secondary dark:bg-secondary-dark  hover:bg-tertiary rounded-full absolute bottom-4 right-4"
             >
                 <img src={EllipsisImg} alt="menu" className="w-1" />
             </button>
@@ -32,14 +32,14 @@ function Action({ openMenuHandler, showMenu, setShowMenu, onClick, note }) {
                     <button
                         onClick={() => onClick({ type: ACTION_REMOVE, note })}
                         type="button"
-                        className="px-5 py-2 bg-slate-200 rounded hover:text-red-400 text-left"
+                        className="px-5 py-2 bg-white dark:bg-slate-200 rounded hover:text-red-400 text-left"
                     >
                         {localeText("delete")}
                     </button>
                     <button
                         onClick={() => onClick({ type: ACTION_MOVE, note })}
                         type="button"
-                        className="px-5 py-2 bg-slate-200 rounded  text-left"
+                        className="px-5 py-2 bg-white dark:bg-slate-200 rounded  text-left"
                     >
                         {localeText(note.archived ? "active" : "archive")}
                     </button>

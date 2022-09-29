@@ -31,7 +31,7 @@ function Account() {
                     <button
                         onClick={() => setShowAccount(true)}
                         type="button"
-                        className="text-white text-3xl"
+                        className="text-text-primary dark:text-text-primary-dark hover:opacity-70 text-3xl"
                     >
                         <HiOutlineUserCircle />
                     </button>

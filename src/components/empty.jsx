@@ -11,7 +11,7 @@ function Empty({ text = "note empty, lets make one!" }) {
                 alt="empty"
                 className="w-[300px] min-h-[250px]"
             />
-            <p className="text-white capitalize text-2xl font-light mt-4">
+            <p className="text-text-primary dark:text-text-primary-dark capitalize text-2xl font-light mt-4">
                 {text}
             </p>
         </div>

@@ -27,21 +27,21 @@ function Header({ onSearchChange, search = false }) {
     return (
         <div className="w-full flex flex-col py-4 relative">
             <div className="w-full flex items-center justify-between">
-                <h1 className="text-white capitalize font-semibold text-2xl xl:text-4xl mb-4">
+                <h1 className="text-text-primary dark:text-text-primary-dark capitalize font-semibold text-2xl xl:text-4xl mb-4">
                     {localeText("private_notes")}
                 </h1>
                 <div className="flex items-center">
                     <button
                         onClick={clickLangHandler}
                         type="button"
-                        className="text-white text-3xl"
+                        className="text-text-primary dark:text-text-primary-dark hover:opacity-70 text-3xl"
                     >
                         <TbLanguage />
                     </button>
                     <button
                         onClick={clickThemeModeHandler}
                         type="button"
-                        className="text-white text-3xl ml-5"
+                        className="text-text-primary dark:text-text-primary-dark hover:opacity-70 text-3xl ml-5"
                     >
                         {setting.theme === DARK_MODE ? (
                             <HiOutlineSun />

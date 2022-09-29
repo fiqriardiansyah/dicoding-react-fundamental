@@ -13,9 +13,11 @@ function ConfirmDeleteNote({ note = null, onOk, onCancel, loading = false }) {
                 {localeText("you_sure_to_delete")}
             </p>
             {note && (
-                <div className="w-full p-3 bg-secondary rounded-lg mt-2">
-                    <p className="capitalize text-white">{note.title}</p>
-                    <p className="text-slate-300 text-xs">
+                <div className="w-full p-3 bg-secondary dark:bg-secondary-dark  rounded-lg mt-2">
+                    <p className="capitalize text-text-primary dark:text-text-primary-dark">
+                        {note.title}
+                    </p>
+                    <p className="text-primary-dark dark:text-slate-300 text-xs">
                         {utils.showFormattedDate({
                             date: note.createdAt,
                             locale: localeText("format_date"),
@@ -28,7 +30,7 @@ function ConfirmDeleteNote({ note = null, onOk, onCancel, loading = false }) {
                     disabled={loading}
                     onClick={() => onOk(note)}
                     type="button"
-                    className="bg-red-400 px-3 py-1 rounded text-white capitalize opacity-75 hover:opacity-100 mr-2"
+                    className="bg-red-400 px-3 py-1 rounded text-text-primary dark:text-text-primary-dark capitalize opacity-75 hover:opacity-100 mr-2"
                 >
                     {loading ? <LoadingSpinner /> : localeText("delete")}
                 </button>
