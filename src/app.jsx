@@ -1,61 +1,48 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { ACTIVE_MENU, ARCHIVE_MENU } from "./utils/const";
-import utils from "./utils";
-import NotesDefault from "./data";
+
+// context
+import { UserContext } from "./context/user";
 
 // pages
-import AllNotesPage from "./pages/all-notes";
-import ArchivedNotesPage from "./pages/archived-notes";
-import ActiveNotesPage from "./pages/active-notes";
-import NotePage from "./pages/note";
-import NotFoundPage from "./pages/404";
-import AddNotePage from "./pages/add";
-import EditNotePage from "./pages/edit";
+import AllNotesPage from "./pages/notes/all-notes";
+import ArchivedNotesPage from "./pages/notes/archived-notes";
+import ActiveNotesPage from "./pages/notes/active-notes";
+import NotePage from "./pages/notes/note";
+import AddNotePage from "./pages/notes/add";
+// auth pages
+import SignIn from "./pages/auth/signin";
+import SignUp from "./pages/auth/signup";
 
 function App() {
-    const [notes, setNotes] = useState(NotesDefault);
+    const { user } = useContext(UserContext);
 
     return (
         <BrowserRouter>
-            <Routes>
-                <Route
-                    path="/"
-                    element={<AllNotesPage notes={notes} setNotes={setNotes} />}
-                />
-                <Route
-                    path={`/${ARCHIVE_MENU}`}
-                    element={
-                        <ArchivedNotesPage
-                            notes={utils.getArchivedNotes(notes)}
-                            setNotes={setNotes}
-                        />
-                    }
-                />
-                <Route
-                    path={`/${ACTIVE_MENU}`}
-                    element={
-                        <ActiveNotesPage
-                            notes={utils.getActiveNotes(notes)}
-                            setNotes={setNotes}
-                        />
-                    }
-                />
-                <Route
-                    path="/note/:id"
-                    element={<NotePage notes={notes} setNotes={setNotes} />}
-                />
-                <Route
-                    path="/edit/:id"
-                    element={<EditNotePage notes={notes} setNotes={setNotes} />}
-                />
-                <Route
-                    path="/new"
-                    element={<AddNotePage setNotes={setNotes} />}
-                />
-                <Route path="/*" element={<NotFoundPage />} />
-            </Routes>
+            {user.accessToken ? (
+                <Routes>
+                    <Route path="/" element={<AllNotesPage />} />
+                    <Route
+                        path={`/${ARCHIVE_MENU}`}
+                        element={<ArchivedNotesPage />}
+                    />
+                    <Route
+                        path={`/${ACTIVE_MENU}`}
+                        element={<ActiveNotesPage />}
+                    />
+                    <Route path="/note/:id" element={<NotePage />} />
+                    <Route path="/new" element={<AddNotePage />} />
+                    <Route path="/*" element={<Navigate to="/" replace />} />
+                </Routes>
+            ) : (
+                <Routes>
+                    <Route path="*" element={<SignIn />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/signin" element={<SignIn />} />
+                </Routes>
+            )}
         </BrowserRouter>
     );
 }

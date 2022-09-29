@@ -8,6 +8,24 @@ export const ACTION_EDIT = "edit";
 
 export const QUERY = "query";
 
+export const ACCESS_TOKEN = "accessToken";
+
+export const DEFAULT_ERROR_MESSAGE = "Ooops something went wrong!";
+
+export const THEME_MODE = "theme";
+export const DARK_MODE = "dark";
+export const LIGHT_MODE = "light";
+
+export const LANG = "lang";
+export const LANG_ID = "id";
+export const LANG_EN = "en";
+
+export const SUCCESS = "success";
+export const DANGER = "danger";
+export const WARNING = "warning";
+export const INFO = "info";
+export const STATUS = "status";
+
 export const MENUS = [
     {
         id: 1,

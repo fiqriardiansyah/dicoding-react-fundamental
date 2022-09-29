@@ -1,18 +1,14 @@
-import React, { forwardRef, useRef } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 import EllipsisImg from "../../assets/svgs/ellipsis.svg";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-import { ACTION_EDIT, ACTION_MOVE, ACTION_REMOVE } from "../../utils/const";
+import { ACTION_MOVE, ACTION_REMOVE } from "../../utils/const";
+import useLocale from "../../hooks/useLocale";
 
-function Action({
-    openMenuHandler,
-    showMenu,
-    setShowMenu,
-    onClick,
-    note: { id, archived },
-}) {
+function Action({ openMenuHandler, showMenu, setShowMenu, onClick, note }) {
     const menuRef = useRef();
+    const localeText = useLocale();
 
     useOnClickOutside(menuRef, () => {
         setShowMenu(false);
@@ -34,25 +30,18 @@ function Action({
                     className="absolute bg-white rounded flex flex-col bottom-4 right-4 z-10"
                 >
                     <button
-                        onClick={() => onClick({ type: ACTION_REMOVE, id })}
+                        onClick={() => onClick({ type: ACTION_REMOVE, note })}
                         type="button"
                         className="px-5 py-2 bg-slate-200 rounded hover:text-red-400 text-left"
                     >
-                        delete
+                        {localeText("delete")}
                     </button>
                     <button
-                        onClick={() => onClick({ type: ACTION_MOVE, id })}
+                        onClick={() => onClick({ type: ACTION_MOVE, note })}
                         type="button"
                         className="px-5 py-2 bg-slate-200 rounded  text-left"
                     >
-                        {archived ? "activate" : "archive"}
-                    </button>
-                    <button
-                        onClick={() => onClick({ type: ACTION_EDIT, id })}
-                        type="button"
-                        className="px-5 py-2 bg-slate-200 rounded  text-left"
-                    >
-                        edit
+                        {localeText(note.archived ? "active" : "archive")}
                     </button>
                 </div>
             )}
@@ -66,8 +55,11 @@ Action.propTypes = {
     setShowMenu: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     note: PropTypes.shape({
-        id: PropTypes.string,
-        archived: PropTypes.bool,
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        createdAt: PropTypes.string.isRequired,
+        archived: PropTypes.bool.isRequired,
     }).isRequired,
 };
 

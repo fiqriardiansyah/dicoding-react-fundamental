@@ -6,10 +6,12 @@ import PropTypes from "prop-types";
 import utils from "../../utils";
 import { QUERY } from "../../utils/const";
 import Action from "./action";
+import useLocale from "../../hooks/useLocale";
 
 function Note({ data: { id, title, body, createdAt, archived }, onClick }) {
     const [showMenu, setShowMenu] = useState(false);
     const [searchParams] = useSearchParams();
+    const localeText = useLocale();
 
     const openMenuHandler = () => {
         setShowMenu(true);
@@ -28,7 +30,10 @@ function Note({ data: { id, title, body, createdAt, archived }, onClick }) {
                 </div>
             </Link>
             <span className="text-slate-500 text-xs">
-                {utils.showFormattedDate(createdAt)}
+                {utils.showFormattedDate({
+                    date: createdAt,
+                    locale: localeText("format_date"),
+                })}
             </span>
             <div className="text-slate-500 font-light my-3 max-h-[300px] overflow-auto">
                 {parser(
@@ -45,14 +50,14 @@ function Note({ data: { id, title, body, createdAt, archived }, onClick }) {
                         : "text-yellow-200 outline-yellow-200"
                 } text-xs  w-fit outline outline-2 capitalize px-4 py-1 rounded-full mt-5`}
             >
-                {archived ? "archived" : "active"}
+                {localeText(archived ? "archive" : "active")}
             </p>
             <Action
                 openMenuHandler={openMenuHandler}
                 showMenu={showMenu}
                 setShowMenu={setShowMenu}
                 onClick={onClick}
-                note={{ id, archived }}
+                note={{ id, title, body, createdAt, archived }}
             />
         </div>
     );

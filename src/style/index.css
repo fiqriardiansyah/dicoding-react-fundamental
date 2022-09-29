@@ -10,26 +10,49 @@ body {
     @apply bg-primary;
 }
 
-@layer {
-    .layout {
-        @apply container mx-auto px-4 xl:px-64 md:px-48 w-full relative
-    }
+*:disabled {
+    cursor: not-allowed;
+}
 
-    [contenteditable][placeholder]:empty:before {
-        content: attr(placeholder);
-        @apply absolute text-slate-400 bg-transparent
+.loading-spinner {
+    display: inline-block;
+    position: relative;
+}
+.loading-spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    border: 2px solid #b2b2b2;
+    border-radius: 50%;
+    animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #b2b2b2 transparent transparent transparent;
+}
+.loading-spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.loading-spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.loading-spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
     }
-
-    .max-1-line {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-                line-clamp: 1; 
-        -webkit-box-orient: vertical;
+    100% {
+        transform: rotate(360deg);
     }
 }
 
+.max-1-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+            line-clamp: 1; 
+    -webkit-box-orient: vertical;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -49,4 +72,15 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@layer {
+    .layout {
+        @apply container mx-auto px-4 xl:px-64 md:px-48 w-full relative
+    }
+
+    [contenteditable][placeholder]:empty:before {
+        content: attr(placeholder);
+        @apply absolute text-slate-400 bg-transparent
+    }
 }

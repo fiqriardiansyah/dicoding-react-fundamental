@@ -28,7 +28,7 @@ function Layout({ children, notes }) {
 
     return (
         <div className="layout">
-            <Header onSearchChange={onSearchChange} />
+            <Header search onSearchChange={onSearchChange} />
             <Menus
                 menuActive={location.pathname}
                 clickHandler={onCLickMenuHandler}

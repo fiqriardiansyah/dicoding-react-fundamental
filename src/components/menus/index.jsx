@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 
 import { MENUS } from "../../utils/const";
 import Menu from "./menu";
+import useLocale from "../../hooks/useLocale";
 
 function Menus({ menuActive, clickHandler }) {
+    const localeText = useLocale();
     const onClick = (id) => {
         clickHandler(MENUS.find((el) => el.id === id));
     };
@@ -19,7 +21,7 @@ function Menus({ menuActive, clickHandler }) {
                     key={el.id}
                     isActive={el.key === key}
                 >
-                    {el.name}
+                    {localeText(el.name)}
                 </Menu>
             ))}
         </div>
